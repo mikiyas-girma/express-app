@@ -11,3 +11,8 @@ app.get('/about', (req, res) => {
 });
 
 app.listen(3000);
+
+// redirects
+app.get('/about-us', (req, res) => {
+  res.sendFile('./views/about.html', {root : __dirname})
+})

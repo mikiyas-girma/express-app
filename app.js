@@ -2,19 +2,25 @@ const express = require('express');
 
 const app = express();
 
+app.set('view engine', 'ejs')
+
 app.get('/', (req, res) => {
-  res.sendFile('./views/index.html', { root:  __dirname});
+  // res.sendFile('./views/index.html', { root:  __dirname});
+  // using ejs view engine
+  res.render('index')
 });
 
 app.get('/about', (req, res) => {
-  res.sendFile('./views/about.html', { root:  __dirname});
+  // res.sendFile('./views/about.html', { root:  __dirname});
+  res.render('about')
 });
 
 app.listen(3000);
 
 // redirects
 app.get('/about-us', (req, res) => {
-  res.sendFile('./views/about.html', {root : __dirname})
+  // res.sendFile('./views/about.html', {root : __dirname})
+  res.render('about')
 })
 
 // 404 page  

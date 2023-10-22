@@ -1,0 +1,14 @@
+{
+  "name": "express-ninja",
+  "version": "1.0.0",
+  "description": "express app",
+  "main": "app.js",
+  "scripts": {
+    "devStart": "nodemon app.js"
+  },
+  "author": "mikiyas girma",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}

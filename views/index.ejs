@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Home page</title>
+  <title>Mike ninja | <%= title %></title>
 </head>
 <body>
  <nav>
@@ -17,5 +17,15 @@
     <li><a href="/blogs/create">New Blogs</a></li>
   </ul>
  </nav>
+
+  <div class="content">
+    <% if(blogs.length > 0) { %>
+      <% blogs.forEach(blog => { %>
+        <h3><%= blog.title %></h3>
+        <p><%= blog.snippet %></p>
+
+    <% }) %>
+  <%  } %>  
+  </div>
 </body>
 </html>

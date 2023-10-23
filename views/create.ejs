@@ -1,11 +1,13 @@
 
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8">
-    <title>mike ninja | <%= title %></title>
-  </head>
+
+  <%- include('./partials/head.ejs') %>
+
   <body>
+
+    <%- include('./partials/nav.ejs') %>
+
     <h1>Create Blog</h1>
     <form action="/blogs" method="POST">
       <label for="title">Title:</label>
@@ -16,5 +18,7 @@
       <textarea id="content" name="content" rows="10" cols="50" required></textarea><br><br>
       <button type="submit">Create</button>
     </form>
+
+    <%- include('./partials/footer.ejs') %>
   </body>
 </html>

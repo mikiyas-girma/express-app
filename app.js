@@ -2,7 +2,18 @@ const express = require('express');
 
 const morgan = require('morgan');
 
+const mongoose = require('mongoose');
+
+// connect to db
 const dbURI = 'mongodb+srv://mikiy16:test1234@cluster0.bmq6vr3.mongodb.net/?retryWrites=true&w=majority'
+mongoose.connect(dbURI)
+.then((result) => {
+  console.log('connected to the db')
+})
+.catch((err) => {
+  console.log(err);
+})
+
 
 const app = express();
 
@@ -11,15 +22,16 @@ app.set('view engine', 'ejs')
 app.listen(3000);
 
 // using our own middleware for logging
-app.use((req, res, next) => {
-  console.log('new request has made');
-  console.log('host: ', req.hostname);
-  console.log('path: ', req.path);
-  console.log('method: ', req.method);
-  next();
-});
+// app.use((req, res, next) => {
+//   console.log('new request has made');
+//   console.log('host: ', req.hostname);
+//   console.log('path: ', req.path);
+//   console.log('method: ', req.method);
+//   next();
+// });
 
-app.use(morgan('dev'));
+// third party middleware for logging
+// app.use(morgan('dev'));
 
 app.use(express.static('public'));
 

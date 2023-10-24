@@ -2,6 +2,8 @@ const express = require('express');
 
 const morgan = require('morgan');
 
+const dbURI = 'mongodb+srv://mikiy16:test1234@cluster0.bmq6vr3.mongodb.net/?retryWrites=true&w=majority'
+
 const app = express();
 
 app.set('view engine', 'ejs')
@@ -24,6 +26,7 @@ app.use(express.static('public'));
 
 
 app.get('/', (req, res) => {
+
   // res.sendFile('./views/index.html', { root:  __dirname});
   // using ejs view engine
 
@@ -53,7 +56,7 @@ app.get('/about-us', (req, res) => {
 })
 
 // 404 page  
-
+ 
 app.use((req, res) => {
   // res.status(404).sendFile('./views/404.html', { root : __dirname})
   res.render('404', { title: 'Page not found' })
